@@ -73,3 +73,28 @@ touch assets/index.ts components/index.ts configs/index.ts contexts/index.ts hoo
   "dev": "next dev -p 3022"
 }
 ```
+
+### Extend more colors by adding following into `tailwind.config.js` file
+
+```js
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        facebook: '#3b5999',
+        twitter: '#55acee',
+        linkedin: '#0077b5',
+        instagram: '#e4405f',
+        whatsapp: '#25d366',
+        youtube: '#cd201f',
+      },
+    },
+  },
+  plugins: [],
+  darkMode: 'class',
+}
+```
