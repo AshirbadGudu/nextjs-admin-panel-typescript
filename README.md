@@ -65,3 +65,11 @@ mkdir -p src/{assets,components,configs,contexts,hooks,types,utils}
 cd src
 touch assets/index.ts components/index.ts configs/index.ts contexts/index.ts hooks/index.ts types/index.ts utils/index.ts
 ```
+
+### Change the default port for nextjs by changing the dev script in `package.json` file
+
+```json
+{
+  "dev": "next dev -p 3022"
+}
+```
