@@ -47,14 +47,14 @@ mv styles src
 ```js
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/pages/**/*.{js,ts,jsx,tsx}', // change this
+    './src/components/**/*.{js,ts,jsx,tsx}', // change this
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-  darkMode: 'class',
+  darkMode: 'class', // change this
 }
 ```
 
@@ -64,8 +64,4 @@ module.exports = {
 mkdir -p src/{assets,components,configs,contexts,hooks,types,utils}
 cd src
 touch assets/index.ts components/index.ts configs/index.ts contexts/index.ts hooks/index.ts types/index.ts utils/index.ts
-```
-
-```
-
 ```
