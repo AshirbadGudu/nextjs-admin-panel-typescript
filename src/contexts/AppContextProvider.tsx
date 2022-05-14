@@ -18,12 +18,12 @@ import { AppContextType, AppContextProviderType, User } from 'types'
 const AppContext = createContext<AppContextType>({})
 
 const AppContextProvider = (props: AppContextProviderType) => {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<Partial<User> | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
   const isMounted = useIsMounted()
   const updateUser = useCallback(
-    async (updatedUserData: User) => {
+    async (updatedUserData: Partial<User>) => {
       isMounted.current &&
         setUser((prev) => ({
           ...prev,
@@ -37,10 +37,11 @@ const AppContextProvider = (props: AppContextProviderType) => {
     const onAuthStateChange = async () => {
       setTimeout(() => {
         isMounted.current && setLoading(false)
+        isMounted.current && updateUser({})
       }, 2000)
     }
     onAuthStateChange()
-  }, [isMounted, router])
+  }, [isMounted, router, updateUser])
 
   const { theme } = useCustomTheme()
   return (

@@ -3,8 +3,8 @@ import { ReactChild, ReactFragment, ReactPortal, SVGProps } from 'react'
 export type IconType = JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
 
 export type AppContextType = {
-  user?: User | null
-  updateUser?: (updatedUserData: User) => Promise<void>
+  user?: Partial<User> | null
+  updateUser?: (updatedUserData: Partial<User>) => Promise<void>
 }
 export type AppContextProviderType = {
   children:

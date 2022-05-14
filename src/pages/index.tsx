@@ -1,17 +1,17 @@
-import { Button } from '@mui/material'
-import { PublicLayout } from 'layouts'
-import type { NextPage } from 'next'
+import { Loader } from 'components/core'
+import { useAppContext } from 'contexts'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-const Home: NextPage = () => {
+export default () => {
   const { push } = useRouter()
-  return (
-    <PublicLayout>
-      <main>
-        <Button onClick={() => push('/login')}>Login</Button>
-      </main>
-    </PublicLayout>
-  )
+  const { user } = useAppContext()
+  useEffect(() => {
+    ;(() => {
+      if (!user) return
+      if (!user?.role) return push('/login')
+      if (user?.role === 'admin') return push('/admin')
+    })()
+  }, [user])
+  return <Loader visible={user === null} />
 }
-
-export default Home
