@@ -50,14 +50,14 @@ export default () => {
         key: '4',
         title: 'Users',
         icon: <People />,
-        route: '/admin/manage-users',
+        route: '/admin/users',
       },
 
       {
         key: '5',
         title: 'Support',
         icon: <Help />,
-        route: '/admin/manage-events',
+        route: '/admin/support',
       },
     ]
   return []
