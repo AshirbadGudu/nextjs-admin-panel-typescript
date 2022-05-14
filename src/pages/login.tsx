@@ -26,6 +26,7 @@ const Login: NextPage = () => {
         password: values.password,
         uid: '123',
         role: 'admin',
+        displayName: 'SuperAdmin',
       })
     } catch (error) {
       console.log(error)
