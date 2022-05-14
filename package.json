@@ -16,9 +16,11 @@
     "@mui/lab": "^5.0.0-alpha.81",
     "@mui/material": "^5.7.0",
     "@mui/x-date-pickers": "^5.0.0-alpha.3",
+    "@types/nprogress": "^0.2.0",
     "formik": "^2.2.9",
     "moment": "^2.29.3",
     "next": "latest",
+    "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "yup": "^0.32.11"
