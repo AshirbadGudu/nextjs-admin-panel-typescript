@@ -3,15 +3,15 @@ import { PublicLayout } from 'layouts'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   const { push } = useRouter()
   return (
     <PublicLayout>
       <main>
-        <Button onClick={() => push('/login')}>Login</Button>
+        <Button onClick={() => push('/admin')}>Admin</Button>
       </main>
     </PublicLayout>
   )
 }
 
-export default Home
+export default Login
