@@ -1,3 +1,5 @@
+import { LOGO } from 'assets'
+
 type Props = {
   visible?: boolean
 }
@@ -12,7 +14,7 @@ const Loader = ({ visible }: Props) => {
         <div className="rotate-animation h-48 w-48 rounded-full border-x-2 border-t-2 border-x-primary border-t-primary" />
         <img
           alt=""
-          src={'/favicon.ico'}
+          src={LOGO}
           className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 animate-pulse"
         />
       </div>
