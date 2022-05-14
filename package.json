@@ -17,6 +17,7 @@
     "@mui/material": "^5.7.0",
     "@mui/x-date-pickers": "^5.0.0-alpha.3",
     "@types/nprogress": "^0.2.0",
+    "firebase": "8",
     "formik": "^2.2.9",
     "moment": "^2.29.3",
     "next": "latest",
