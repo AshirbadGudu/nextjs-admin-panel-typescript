@@ -9,6 +9,7 @@ import {
   TextFieldProps,
 } from '@mui/material'
 import { LOGO } from 'assets'
+import { useAppContext } from 'contexts'
 import { Formik, Form, Field } from 'formik'
 import { PublicLayout } from 'layouts'
 import type { NextPage } from 'next'
@@ -17,9 +18,15 @@ import { LoginSchema } from 'schemas'
 import * as Yup from 'yup'
 
 const Login: NextPage = () => {
+  const { updateUser } = useAppContext()
   const handleLogin = async (values: any, submitProps: any) => {
     try {
-      console.log(values)
+      updateUser?.({
+        email: values.email,
+        password: values.password,
+        uid: '123',
+        role: 'admin',
+      })
     } catch (error) {
       console.log(error)
     }
