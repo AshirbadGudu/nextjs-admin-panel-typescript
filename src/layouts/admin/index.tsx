@@ -7,10 +7,12 @@ import AppBar from './appbar'
 type Props = {
   title?: string
   children: JSX.Element
+  className?: string
 }
 export default function AdminLayout({
   title = 'Welcome To Admin Panel',
   children = <></>,
+  className = 'bg-gradient-to-r from-slate-50 via-stone-50 to-zinc-50',
 }: Props) {
   const { user } = useAppContext()
   const { push } = useRouter()
@@ -29,7 +31,7 @@ export default function AdminLayout({
       </Head>
       <Drawer open={isOpen} onToggle={() => setIsOpen(!isOpen)} />
       <main
-        className={`min-h-screen bg-gradient-to-r from-slate-50 via-stone-50 to-zinc-50 ${
+        className={`min-h-screen ${className} ${
           isOpen
             ? 'ml-[calc(100vw-calc(100vw-280px))] w-[calc(100vw-280px)]'
             : 'ml-[calc(100vw-calc(100vw-72px))] w-[calc(100vw-72px)]'

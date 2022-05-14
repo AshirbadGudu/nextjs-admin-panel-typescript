@@ -40,3 +40,11 @@ export type Support = {
   subject: string
   message: string
 }
+
+export type NotificationType = {
+  id: string
+  title: string
+  message: string
+  createdAt: string
+  isRead: boolean
+}
