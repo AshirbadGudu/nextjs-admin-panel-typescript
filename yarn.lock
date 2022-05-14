@@ -2004,6 +2004,11 @@ svg-pathdata@^6.0.3:
   resolved "https://registry.yarnpkg.com/svg-pathdata/-/svg-pathdata-6.0.3.tgz#80b0e0283b652ccbafb69ad4f8f73e8d3fbf2cac"
   integrity sha512-qsjeeq5YjBZ5eMdFuUa4ZosMLxgr5RZ+F+Y1OrDhuOCEInRMA3x74XdBtggJcj9kOeInz0WE+LgCPDkZFlBYJw==
 
+sweetalert2@^11.4.14:
+  version "11.4.14"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.4.14.tgz#b7c7efbf6672aa56696ba68d7ac141798b961525"
+  integrity sha512-Dh4XqfUSpCwhRsGM5zZFbtBRHujjcaf98DjVKXEs0ER4E/Zao0OtDHZRRQqvT9xxY7RA8WsiZ6FHJbyW+BBbDw==
+
 symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
