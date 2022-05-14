@@ -98,3 +98,21 @@ module.exports = {
   darkMode: 'class',
 }
 ```
+
+### Install MUI related dependencies
+
+```sh
+yarn add @mui/material @emotion/react @emotion/styled @mui/lab @mui/icons-material @mui/x-date-pickers @date-io/moment moment
+```
+
+### Install @material-table/core and exporter package
+
+```sh
+yarn add @material-table/core@next @material-table/exporters
+```
+
+### Install formik and yup for form validation
+
+```sh
+yarn add formik yup
+```
