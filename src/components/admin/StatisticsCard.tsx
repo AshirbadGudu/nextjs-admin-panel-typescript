@@ -11,7 +11,7 @@ type Props = {
   }[]
 }
 
-const StatisticsCard = ({ className, data }: Props) => {
+const StatisticsCard = ({ className = '', data }: Props) => {
   return (
     <>
       <section className={`rounded-md bg-white p-6 shadow-lg ${className}`}>
