@@ -30,7 +30,6 @@ const AppContextProvider = (props: AppContextProviderType) => {
   useEffect(() => {
     const onAuthStateChange = async () => {
       auth.onAuthStateChanged((user) => {
-        console.log(user)
         isMounted.current && setLoading(true)
         if (!user) {
           isMounted.current && setLoading(false)

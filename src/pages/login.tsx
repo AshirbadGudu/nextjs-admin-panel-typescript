@@ -9,25 +9,34 @@ import {
   TextFieldProps,
 } from '@mui/material'
 import { LOGO } from 'assets'
-import { useAppContext } from 'contexts'
+import { auth, database } from 'configs'
 import { Formik, Form, Field } from 'formik'
 import { PublicLayout } from 'layouts'
 import type { NextPage } from 'next'
 import { useState } from 'react'
 import { LoginSchema } from 'schemas'
+import Swal from 'sweetalert2'
+import { User } from 'types'
 import * as Yup from 'yup'
 
 const Login: NextPage = () => {
-  const { updateUser } = useAppContext()
   const handleLogin = async (values: any, submitProps: any) => {
     try {
-      updateUser?.({
-        email: values.email,
-        password: values.password,
-        uid: '123',
-        role: 'admin',
-        displayName: 'SuperAdmin',
-      })
+      const { user } = await auth.signInWithEmailAndPassword(
+        values.email,
+        values.password
+      )
+      const snap = await database.ref(`Users/${user?.uid}`).once('value')
+      const userData = snap?.val() as User
+      if (userData?.role !== 'admin') {
+        Swal.fire({
+          title: 'Oops...',
+          text: 'You are not an admin',
+          icon: 'error',
+        })
+        return auth.signOut()
+      }
+      Swal.fire('Success', 'You have successfully logged in', 'success')
     } catch (error) {
       console.log(error)
     }

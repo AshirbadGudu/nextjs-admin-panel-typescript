@@ -25,6 +25,7 @@ import { useRouter } from 'next/router'
 import Swal from 'sweetalert2'
 import { useMenuItems } from 'hooks'
 import { useAppContext } from 'contexts'
+import { auth } from 'configs'
 
 type DrawerType = {
   onToggle?: () => void
@@ -46,6 +47,7 @@ const Drawer = ({ open, onToggle }: DrawerType) => {
         cancelButtonText: 'No, cancel!',
       })
       if (!value) return
+      await auth.signOut()
       return router.replace('/')
     } catch (error) {
       console.log(error)

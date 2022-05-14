@@ -1,6 +1,7 @@
 import { Logout } from '@mui/icons-material'
 import { Avatar, Divider, ListItemIcon, Menu, MenuItem } from '@mui/material'
 import { ICONS } from 'assets'
+import { auth } from 'configs'
 import { useAppContext } from 'contexts'
 import { useRouter } from 'next/router'
 import { MouseEvent, useState } from 'react'
@@ -23,6 +24,7 @@ export default function AccountMenu() {
         cancelButtonText: 'No, cancel!',
       })
       if (!value) return
+      await auth.signOut()
       return router.replace('/')
     } catch (error) {
       console.log(error)
