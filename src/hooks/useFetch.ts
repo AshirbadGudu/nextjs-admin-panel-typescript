@@ -54,11 +54,10 @@ export default function useFetch<T>(path: string, options?: Options) {
 
   useEffect(() => {
     database.ref(path).on('value', (snap) => {
-      isMounted.current &&
-        dispatch({
-          type: needArray ? 'needArray' : needNested ? 'needNested' : 'raw',
-          payload: { snap },
-        })
+      let type: 'needArray' | 'needNested' | 'filter' | 'raw' = 'raw'
+      if (needNested) type = 'needNested'
+      if (!needNested && needArray) type = 'needArray'
+      isMounted.current && dispatch({ type, payload: { snap } })
     })
   }, [isMounted, needArray, needNested, path])
   type ReturnType = [T, boolean]

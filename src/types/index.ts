@@ -32,3 +32,11 @@ export type User = {
   role: UserRole
   isOnline: boolean
 }
+
+export type Support = {
+  id: string
+  displayName: string
+  email: string
+  subject: string
+  message: string
+}
