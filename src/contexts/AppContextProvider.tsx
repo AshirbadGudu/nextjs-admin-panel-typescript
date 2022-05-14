@@ -4,24 +4,28 @@ import { useIsMounted } from 'hooks'
 import { useRouter } from 'next/router'
 import {
   createContext,
+  ReactChild,
+  ReactFragment,
+  ReactPortal,
   useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react'
 import { useCustomTheme } from 'themes'
+import { AppContextType, AppContextProviderType, User } from 'types'
 
-const AppContext = createContext<any>({})
+const AppContext = createContext<AppContextType>({})
 
-const AppContextProvider = (props: any) => {
-  const [user, setUser] = useState<any>(null)
+const AppContextProvider = (props: AppContextProviderType) => {
+  const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
   const isMounted = useIsMounted()
   const updateUser = useCallback(
-    async (updatedUserData: any) => {
+    async (updatedUserData: User) => {
       isMounted.current &&
-        setUser((prev: any) => ({
+        setUser((prev) => ({
           ...prev,
           ...updatedUserData,
         }))

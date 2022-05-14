@@ -9,7 +9,7 @@ const Loader = ({ visible }: Props) => {
       }`}
     >
       <div className="relative h-48 w-48">
-        <div className="rotate-animation h-48 w-48 rounded-full border-x-2 border-t-2 border-x-red-600 border-t-red-500" />
+        <div className="rotate-animation h-48 w-48 rounded-full border-x-2 border-t-2 border-x-primary border-t-primary" />
         <img
           alt=""
           src={'/favicon.ico'}
