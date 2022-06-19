@@ -115,10 +115,6 @@ export default function Users() {
               lookup: {
                 admin: 'Admin',
                 user: 'User',
-                stall: 'Stall',
-                'stall-member': 'Stall Member',
-                'speaker-host': 'Speaker Host',
-                'speaker-member': 'Speaker Member',
               },
             },
             {
