@@ -77,7 +77,7 @@ export default function Users() {
               title: 'Name',
               field: 'displayName',
               hideFilterIcon: true,
-              render: ({ displayName, photoURL, email }) => (
+              render: ({ displayName, photoURL, phoneNumber }) => (
                 <>
                   <div className="flex items-center gap-2">
                     <Avatar
@@ -91,7 +91,7 @@ export default function Users() {
                     </Avatar>
                     <div className="">
                       <h4 className="">{displayName}</h4>
-                      <h6 className="text-sm text-gray-500">{email}</h6>
+                      <h6 className="text-sm text-gray-500">{phoneNumber}</h6>
                     </div>
                   </div>
                 </>
@@ -100,13 +100,12 @@ export default function Users() {
             {
               title: 'Email',
               field: 'email',
-              hidden: true,
               export: true,
             },
             {
               title: 'Password',
               field: 'password',
-              hidden: true,
+              render: () => '******',
               export: true,
             },
             {
@@ -157,6 +156,37 @@ export default function Users() {
               },
             },
           ]}
+          editable={{
+            onRowAdd: async (newData) => {
+              try {
+                const apiResponse = await fetch('/api/user/create', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    displayName: newData.displayName,
+                    email: newData.email,
+                    password: newData.password,
+                    dbRef: `Users`,
+                    role: newData.role,
+                    additionalData: {},
+                  }),
+                })
+                const result = await apiResponse.json()
+                console.log(result)
+                if (result?.error)
+                  return Swal.fire('Error', result?.message, 'error')
+                Swal.fire('Success', 'Successfully added', 'success')
+              } catch (error: any) {
+                Swal.fire(
+                  'Error',
+                  error?.message || 'Error creating user',
+                  'error'
+                )
+              }
+            },
+          }}
         />
       </div>
     </AdminLayout>

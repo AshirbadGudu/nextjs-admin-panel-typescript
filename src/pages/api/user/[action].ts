@@ -26,11 +26,10 @@ export default async function handler(
         const UserResponse: Partial<User> = {
           displayName: body.displayName,
           email: body.email,
-          phoneNumber: body?.phoneNumber,
           password: body.password,
           uid: response.uid,
           isBlocked: false,
-          role: body?.role,
+          role: body?.role ?? 'user',
           updatedAt: new Date().toString(),
           createdAt: new Date().toString(),
         }
@@ -43,8 +42,11 @@ export default async function handler(
         res
           .status(200)
           .json({ message: 'User created successfully', User: UserResponse })
-      } catch (error) {
-        res.status(500).json({ error: error as Error })
+      } catch (error: any) {
+        res.status(500).json({
+          error: error,
+          message: error?.message || 'Error creating user',
+        })
       }
     },
     update: async () => {
