@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   CardContent,
+  CircularProgress,
   IconButton,
   InputAdornment,
   TextField,
@@ -120,7 +121,13 @@ const Login: NextPage = () => {
                         color="primary"
                         className="bg-primary"
                         size="large"
-                        startIcon={<LoginOutlined />}
+                        startIcon={
+                          formik.isSubmitting ? (
+                            <CircularProgress color="inherit" size={16} />
+                          ) : (
+                            <LoginOutlined />
+                          )
+                        }
                       >
                         Login
                       </Button>
