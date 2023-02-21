@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 export default () => [
   {
     key: '1',
-    label: 'Emter your email',
+    label: 'Enter your email',
     name: 'email',
     type: 'email',
     validationSchema: Yup.string()
